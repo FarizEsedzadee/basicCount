@@ -1,11 +1,11 @@
 import { useState } from "react";
-import "./App.css";
+import './App.css'
 
 function App() {
   let [count, setCount] = useState(0);
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="h-screen flex flex-col items-center justify-center gap-6">
       <div className="flex items-center gap-4">
         <button
           onClick={() => setCount(count <= 0 ? 0 : count - 1)}
@@ -22,6 +22,20 @@ function App() {
         >
           +
         </button>
+      </div>
+
+      <button
+        onClick={() => setCount(0)}
+        className="px-4 py-2 border rounded bg-gray-100 hover:bg-gray-200"
+      >
+        Reset
+      </button>
+
+      <div className="w-64 bg-gray-200 rounded-full h-4 overflow-hidden">
+        <div
+          className="bg-red-500 h-4"
+          style={{ width: `${(count / 10) * 100}%` }}
+        ></div>
       </div>
     </div>
   );
